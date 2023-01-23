@@ -53,6 +53,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CONFIG := a14xm_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/mt6833
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/a14xm/bootimg.mk
 
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
