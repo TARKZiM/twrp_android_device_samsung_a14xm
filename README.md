@@ -1,4 +1,4 @@
-# Android device tree for samsung SC-56B (a22ex)
+# Android device tree for samsung SM-A146P (a14xm)
 
 ```
 #
