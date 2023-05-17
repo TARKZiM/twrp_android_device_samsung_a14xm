@@ -3,9 +3,7 @@ service dsmsd /system/bin/dsms
 	user dsms
 	group dsms
 	disabled
+	oneshot
 
 on boot
 	start dsmsd
-
-on property:security.dsmsd.enable=false
-	stop dsmsd
