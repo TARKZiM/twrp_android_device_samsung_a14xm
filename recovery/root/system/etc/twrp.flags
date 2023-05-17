@@ -1,0 +1,16 @@
+/boot         emmc     /dev/block/platform/bootdevice/by-name/boot      flags=backup=1;display="Boot";flashimg;
+/cache        ext4     /dev/block/platform/bootdevice/by-name/cache     flags=backup=1;display="Cache";
+/efs          ext4     /dev/block/platform/bootdevice/by-name/sec_efs   flags=backup=1;display="EFS";
+
+#
+/nvram        emmc     /dev/block/platform/bootdevice/by-name/nvram     flags=display="NVRAM";backup=1;
+/nvcfg        emmc     /dev/block/platform/bootdevice/by-name/nvcfg     flags=display="NVCFG";backup=1;subpartitionof=/nvram;
+/nvdata       emmc     /dev/block/platform/bootdevice/by-name/nvdata    flags=display="NVDATA";backup=1;subpartitionof=/nvram;
+
+/optics       ext4     /dev/block/platform/bootdevice/by-name/optics    flags=backup=1;flashimg;display="Optics";
+/prism        ext4     /dev/block/platform/bootdevice/by-name/prism     flags=backup=1;flashimg;display="Prism";
+
+/recovery     emmc     /dev/block/platform/bootdevice/by-name/recovery  flags=backup=1;display="Recovery";flashimg;
+
+# Removable storage
+/external_sd  auto     /dev/block/mmcblk1p1	/dev/block/mmcblk1          flags=storage;wipeingui;removable;display="External SDcard"

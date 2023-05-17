@@ -1,0 +1,17 @@
+on init
+    # unlink /efs > /mnt/vendor/efs
+    rm /efs
+    mkdir /efs
+    mkdir /sec_efs
+
+ #to cut charging battery path
+    write /sys/class/power_supply/battery/siop_level 0
+
+on boot
+     setprop ro.boot.vbmeta.avb_version 1.2 
+     setprop ro.boot.avb_version 1.2 
+on fs 
+     wait /dev/block/platform/soc/{ro.boot.bootdevice} 
+     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice 
+
+export ANDROID_ROOT /system_root
