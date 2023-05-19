@@ -8,4 +8,3 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 ```
-# a146p-a14xm-recovery
