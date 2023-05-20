@@ -18,12 +18,12 @@ $(call inherit-product, device/samsung/a14xm/device.mk)
 PRODUCT_DEVICE := a14xm
 PRODUCT_NAME := twrp_a14xm
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-A146P
+PRODUCT_MODEL := Samsung Galaxy A14 5G
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="a14xmxx-user 12 SP1A.210812.016 A146PXXU1AWB5 release-keys"
+    PRIVATE_BUILD_DESC="a14xmzh-user 13 TP1A.220624.014 A146PZHU2BWD1 release-keys"
 
-BUILD_FINGERPRINT := samsung/a14xmxx/a14xm:12/SP1A.210812.016/A146PXXU1AWB5:user/release-keys
+BUILD_FINGERPRINT := samsung/a14xmzh/a14xm:13/TP1A.220624.014/A146PZHU2BWD1:user/release-keys
