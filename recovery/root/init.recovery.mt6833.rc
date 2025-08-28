@@ -37,3 +37,28 @@ on post-fs
 
 on boot
     start health-hal-2-1
+    start vendor.gatekeeper-1-0
+
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    start vendor.keymint-default
+
+service vendor.keymint-default /vendor/bin/hw/android.hardware.security.keymint-service
+    class early_hal
+    user system
+    group system drmrpc
+
+on post-fs
+    mkdir /mnt/vendor/efs/DAK 0775 system system
+    restorecon -R /mnt/vendor/efs/DAK
+    chown system system /mnt/vendor/efs/DAK/gakkeybox
+    chmod 0644 /mnt/vendor/efs/DAK/gakkeybox
+
+on post-fs-data
+    mkdir /data/vendor/keymaster 0775 system system
+    mkdir /data/vendor/gatekeeper 0770 system system
+
+service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    interface android.hardware.gatekeeper@1.0::IGatekeeper default
+    class hal
+    user system
+    group system 5678
