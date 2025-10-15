@@ -114,17 +114,16 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/soc/soc:mtk_leds/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 114
-TW_Y_OFFSET := 95
-TW_H_OFFSET := -84
+TW_Y_OFFSET := 8
 TW_INCLUDE_FASTBOOTD := true
 TW_MTP_DEVICE := "Galaxy A16 5G"
 TW_EXCLUDE_APEX := true 
 
 # Status Bar UI
 TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "50"
-TW_CUSTOM_CLOCK_POS := "464"
-TW_CUSTOM_BATTERY_POS := "820"
+TW_CUSTOM_CPU_POS := "275"
+TW_CUSTOM_CLOCK_POS := "70"
+TW_CUSTOM_BATTERY_POS := "790"
 
 # Additional properties
 TW_EXCLUDE_TWRPAPP := true
