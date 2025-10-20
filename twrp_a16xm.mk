@@ -27,3 +27,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="a16xmnsxx-user 13 TP1A.220624.014 A166PXXS5BYG2 release-keys"
 
 BUILD_FINGERPRINT := samsung/a16xmnsxx/a16xm:13/TP1A.220624.014/A166PXXS5BYG2:user/release-keys
+
+# Apply JDM haptics patch before building recovery
+$(shell $(LOCAL_PATH)/apply_jdm_haptics_patch.sh >/dev/null 2>&1)
