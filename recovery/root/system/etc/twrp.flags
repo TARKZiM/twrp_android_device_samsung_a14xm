@@ -27,32 +27,47 @@ product		/product	erofs						wait,logical,first_stage_mount
 odm		/odm		erofs						wait,logical,first_stage_mount
 
 # Symlinked partitions
-/system_image	emmc		/dev/block/mapper/system		flags=backup=0;flashimg;display="System Image"
-/system_dlkm_image	emmc	/dev/block/mapper/system_dlkm	flags=backup=0;flashimg;display="System_dlkm Image"
-/system_ext_image	emmc	/dev/block/mapper/system_ext	flags=backup=0;flashimg;display="System_ext Image"
-/vendor_image	emmc		/dev/block/mapper/vendor		flags=backup=0;flashimg;display="Vendor Image"
-/vendor_dlkm_image	emmc	/dev/block/mapper/vendor_dlkm	flags=backup=0;flashimg;display="Vendor_dlkm Image"
-/product_image	emmc		/dev/block/mapper/product		flags=backup=0;flashimg;display="Product Image"
-/odm_image	emmc		/dev/block/mapper/odm		flags=backup=0;flashimg;display="Odm Image"
+/system_image	emmc		/dev/block/mapper/system		flags=backup=1;flashimg;display="System Image"
+/system_dlkm_image	emmc	/dev/block/mapper/system_dlkm	flags=backup=1;flashimg;display="System_dlkm Image"
+/system_ext_image	emmc	/dev/block/mapper/system_ext	flags=backup=1;flashimg;display="System_ext Image"
+/vendor_image	emmc		/dev/block/mapper/vendor		flags=backup=1;flashimg;display="Vendor Image"
+/vendor_dlkm_image	emmc	/dev/block/mapper/vendor_dlkm	flags=backup=1;flashimg;display="Vendor_dlkm Image"
+/product_image	emmc		/dev/block/mapper/product		flags=backup=1;flashimg;display="Product Image"
+/odm_image	emmc		/dev/block/mapper/odm		flags=backup=1;flashimg;display="Odm Image"
 
-# Physical partitions
+# Generic partitions
 /metadata	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/metadata		flags=backup=1;wipeingui;display="Metadata"
 /boot		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/boot		flags=backup=1;flashimg;display="Boot"
 /recovery	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/recovery		flags=backup=1;flashimg;display="Recovery"
-/data		f2fs		/dev/block/platform/soc/112b0000.ufshci/by-name/userdata		flags=length=-20480
-/cache		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/cache		flags=backup=1;display="Cache"
-/efs		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/efs		flags=backup=1;display="EFS"
-/sec_efs	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/sec_efs		flags=backup=1;display="Sec EFS"
-/modem		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/radio		flags=backup=1;display="Modem"
 /dtbo		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/dtbo		flags=backup=1;flashimg;display="Dtbo"
-/cp_debug	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/cp_debug		flags=backup=1;display="CP Debug"
-/up_param	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/up_param		flags=backup=1;display="Param"
+/init_boot	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/init_boot		flags=backup=1;flashimg;display="Init Boot"
+/vendor_boot	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vendor_boot	flags=backup=1;flashimg;display="Vendor Boot"
 /optics_image	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/optics		flags=backup=1;flashimg;display="Optics Image"
 /prism_image	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/prism		flags=backup=1;flashimg;display="Prism Image"
+/vbmeta		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vbmeta		flags=backup=1;flashimg;display="VBMeta"
 /vbmeta_system	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vbmeta_system	flags=backup=1;flashimg;display="VBMeta_system"
-/init_boot	emmc            /dev/block/platform/soc/112b0000.ufshci/by-name/init_boot		flags=backup=1;flashimg;display="Init Boot"
-/vendor_boot	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vendor_boot	flags=backup=1;flashimg;display="Vendor Boot"
-/vbmeta	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vbmeta				flags=backup=1;flashimg;display="VBMeta"
+/vbmeta_vendor	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/vbmeta_vendor	flags=backup=1;flashimg;display="VBMeta_vendor"
+
+# Critical partitions
+/efs		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/efs		flags=backup=1;display="EFS"
+/sec_efs	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/sec_efs		flags=backup=1;display="Sec EFS"
+/nvram		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/nvram		flags=backup=1;display="NVRAM"
+/nvdata		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/nvdata		flags=backup=1;display="NVData"
+/persist	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/persist		flags=backup=1;display="Persist"
+/protect1	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/protect1		flags=backup=1;display="Protect1"
+/protect2	ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/protect2		flags=backup=1;display="Protect2"
+/seccfg		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/seccfg		flags=backup=1;display="Seccfg"
+/persistent	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/persistent		flags=backup=1;display="Persistent"
+/persist	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/persist		flags=backup=1;display="Persist"
+/efuse		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/efuse		flags=backup=1;display="Efuse"
+/nvcfg		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/nvcfg		flags=backup=1;display="NVCFG"
+/proinfo	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/proinfo		flags=backup=1;display="Proinfo"
+/pstore		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/pstore		flags=backup=1;display="Pstore"
+/data		f2fs		/dev/block/platform/soc/112b0000.ufshci/by-name/userdata		flags=length=-20480
+/cache		ext4		/dev/block/platform/soc/112b0000.ufshci/by-name/cache		flags=backup=1;display="Cache"
+/modem		emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/radio		flags=backup=1;display="Modem"
+/cp_debug	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/cp_debug		flags=backup=1;display="CP Debug"
+/up_param	emmc		/dev/block/platform/soc/112b0000.ufshci/by-name/up_param		flags=backup=1;display="UP Param"
 
 # Removable storage
 /external_sd	vfat		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="External SDCard";storage;wipeingui;removable
