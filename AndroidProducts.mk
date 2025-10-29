@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_a16xm.mk
+    $(LOCAL_DIR)/twrp_a14xm.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_a16xm-user \
-    twrp_a16xm-userdebug \
-    twrp_a16xm-eng
+    twrp_a14xm-user \
+    twrp_a14xm-userdebug \
+    twrp_a14xm-eng

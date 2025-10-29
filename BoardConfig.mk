@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/samsung/a16xm
+DEVICE_PATH := device/samsung/a14xm
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -20,9 +20,9 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 
 # SoC
-TARGET_SOC := mt6835
+TARGET_SOC := mt6833
 BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := mt6835
+TARGET_BOARD_PLATFORM := mt6833
 # TARGET_BOARD_PLATFORM_GPU := mali-g57
 
 # Properties
@@ -35,7 +35,7 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := a16xm
+TARGET_BOOTLOADER_BOARD_NAME := a14xm
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
@@ -44,14 +44,14 @@ TARGET_SCREEN_DENSITY := 450
 
 # Kernel
 BOARD_KERNEL_BASE := 0x3fff8000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.hardware=a16xm
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 loop.max_part=7 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x26f08000 --tags_offset 0x07c88000 --header_version 2 --board SRPXE27A005
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
 
 # Kernel modules
@@ -59,9 +59,9 @@ TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 83886080
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 41943040
+BOARD_DTBOIMG_PARTITION_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := erofs
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
@@ -109,28 +109,24 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_DEVICE_VERSION := ravindu644
-TW_USE_SAMSUNG_JDM_HAPTICS := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/soc/soc:mtk_leds/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 114
-TW_Y_OFFSET := 8
 TW_INCLUDE_FASTBOOTD := true
-TW_MTP_DEVICE := "Galaxy A16 5G"
+TW_MTP_DEVICE := "Galaxy A14 5G"
 TW_EXCLUDE_APEX := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Status Bar UI
-TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "275"
-TW_CUSTOM_CLOCK_POS := "70"
-TW_CUSTOM_BATTERY_POS := "790"
+TW_Y_OFFSET := 75
+TW_H_OFFSET := -75
 
 # Additional properties
 TW_EXCLUDE_TWRPAPP := true
 TARGET_USES_MKE2FS := true
-TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/capacity
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone41/temp
+#TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/soc/1c804000.spmi/spmi-0/0-04/mt6377-gauge/power_supply/battery/capacity
+#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone41/temp
 TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_FB2PNG := true
 BOARD_RAMDISK_USE_LZ4 := true

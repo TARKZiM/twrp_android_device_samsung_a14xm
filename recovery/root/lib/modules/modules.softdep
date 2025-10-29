@@ -1,6 +1,9 @@
 # Soft dependencies extracted from modules themselves.
-softdep usb_notify_layer post:extcon-mtk-usb
+softdep mtk_afe_external post: mediatek-drm
 softdep softdog pre: mtk_wdt
-softdep mt6835_dcm pre:mtk_dcm.ko
-softdep mcd_panel pre: s2dos05-regulator i2c-exynos5
-softdep usb_notifier post:extcon-mtk-usb
+softdep clkbuf pre: mt6685-core
+softdep clkbuf pre: mt6397
+softdep mt6833_dcm pre:mtk_dcm.ko
+softdep mtk_dvfsrc post: mtk-dvfsrc-regulator
+softdep mtk_dvfsrc post: mtk-dvfsrc-devfreq
+softdep mtk_dvfsrc post: mtk-emi

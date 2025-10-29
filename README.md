@@ -1,4 +1,4 @@
-# Android device tree for samsung SM-A166P (a16xm)
+# Android device tree for samsung SM-A146P (a14xm)
 
 ```
 #

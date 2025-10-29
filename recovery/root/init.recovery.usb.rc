@@ -214,9 +214,3 @@ on property:sys.usb.config=none
 
     # Set the final state
     setprop sys.usb.state ${sys.usb.config}
-
-service usb_otg_switcher /vendor/bin/usb_otg_switcher
-    class main
-    user root
-    group root
-    seclabel u:r:recovery:s0
