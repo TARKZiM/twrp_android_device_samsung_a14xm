@@ -53,7 +53,8 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CONFIG := a14xm_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/mt6833
-TW_LOAD_VENDOR_BOOT_MODULES := true
+TW_LOAD_VENDOR_MODULES := "focaltech_tp.ko hxchipset.ko sec.ko sec_cmd.ko tp_notifier.ko"
+# TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # Kernel - prebuilt

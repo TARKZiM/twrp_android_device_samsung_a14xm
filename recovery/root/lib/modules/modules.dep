@@ -1,0 +1,4 @@
+/vendor/lib/modules/sec.ko:
+/vendor/lib/modules/focaltech_tp.ko: /vendor/lib/modules/sec_cmd.ko /vendor/lib/modules/tp_notifier.ko
+/vendor/lib/modules/hxchipset.ko: /vendor/lib/modules/sec_cmd.ko /vendor/lib/modules/tp_notifier.ko
+/vendor/lib/modules/sec_cmd.ko:
