@@ -1,3 +1,22 @@
+on early-boot
+    # from vendor/etc/init/init.md.rc (edited by sheffdev)
+    # adding more ts lkm (rsuntk)
+    insmod /vendor/lib/modules/sec.ko
+    insmod /vendor/lib/modules/sec_cmd.ko
+    insmod /vendor/lib/modules/tp_notifier.ko
+    insmod /vendor/lib/modules/focaltech_tp.ko
+    insmod /vendor/lib/modules/hxchipset.ko
+    insmod /vendor/lib/modules/ILI7807S_tp.ko
+
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
+    sec \
+    sec_cmd \
+	tp_notifier \
+	focaltech_tp \
+	hxchipset \
+	ILI7807S_tp
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.ffs.aio_compat 1
